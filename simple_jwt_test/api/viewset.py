@@ -25,11 +25,14 @@ from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIVi
 from simple_jwt_test.models import Category,Product
 from rest_framework import viewsets, permissions
 from .serializers import CategorySerializer
+from django_filters.rest_framework import DjangoFilterBackend
 
 class CategoryListsCreate(ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['category_type']
 
 class CategoryDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()

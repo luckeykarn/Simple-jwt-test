@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'simple_jwt_test',
     'rest_framework',
     'rest_framework_simplejwt',
+    "django_filters",
     # 'rest_framework_simplejwt.token_blacklist', # Recommended for token blacklisting (logout)
 ]
 #DRF Setting
